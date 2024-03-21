@@ -1,7 +1,7 @@
-import { Sequelize } from "sequelize";
+// import { Sequelize } from "sequelize";
 
 
-export const sequelize = new Sequelize('sample_db', 'root', '', {
-    host: 'localhost',
-    dialect: 'mysql'
-  });
+// export const sequelize = new Sequelize('sample_db', 'root', '', {
+//     host: 'localhost',
+//     dialect: 'mysql'
+//   });

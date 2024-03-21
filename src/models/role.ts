@@ -1,10 +1,10 @@
 import { DataTypes } from 'sequelize';
 import { RoleType } from '../typings/role';
-import { sequelize } from '../config';
+import db from '.';
 
 // import { RoleStatusEnum } from '../enum/status';
 
-export const Role = sequelize.define<RoleType>(
+export const Role = db.define<RoleType>(
   'Role',
   {
     id: {

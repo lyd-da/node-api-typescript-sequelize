@@ -1,10 +1,10 @@
 import {DataTypes, Model } from 'sequelize'
-import { sequelize } from '../config';
 import { UserType } from '../typings/user';
 import { Role } from './role';
+import db from '.';
 
 
-export const User = sequelize.define<UserType>(
+export const User = db.define<UserType>(
   'User',{
  id: {
       autoIncrement: true,

@@ -5,5 +5,6 @@ export interface UserType extends Model<InferAttributes<UserType>>{
     username:string,
     firstName: string,
     lastName: string,
+    status: string,
     RoleId: number
 }

@@ -1,5 +1,5 @@
 import { QueryInterface } from 'sequelize';
-import { Role } from '../src/models/role';
+import { Role } from '../../src/models/role';
 
 module.exports = {
   up: async (queryInterface: QueryInterface): Promise<void> => {
@@ -9,20 +9,14 @@ module.exports = {
         [
           {
             id: 1,
-            name: 'Super Admin',
-            status: 'active',
-            description: 'This is a Super Admin role',
-            label: 'Super Admin',
+            roleName: 'Super Admin',
+            roleStatus: 'active',
           },
           {
             id: 2,
-            name: 'Admin',
-            status: 'active',
-            description: 'This is a admin role',
-            label: 'Admin',
+            roleName: 'Admin',
+            roleStatus: 'active',
           },
-         
-         
         ],
         {
           transaction,

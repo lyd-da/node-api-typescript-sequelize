@@ -1,13 +1,12 @@
-import { Sequelize } from 'sequelize';
-import { Options } from 'sequelize/types';
-require('dotenv').config();
-
-const configDB = require('../../config/config');
-
+import { Options, Sequelize } from 'sequelize';
+// import  config  from '../config/config';
+const config = require('../config/config')
 const env: string = process.env.NODE_ENV?.trim() || 'development';
 
-const config: Options = configDB[env as keyof typeof configDB];
+const configDB: any = config[env as keyof typeof config];
 
-const db: Sequelize = new Sequelize(config.database!, config.username!, config.password, config);
-
+const db: Sequelize = new Sequelize(configDB.database, configDB.username, configDB.password, {
+        host: configDB.host,
+        dialect: "mysql"
+      });
 export default db;

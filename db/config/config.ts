@@ -11,10 +11,10 @@ interface ConfigTs {
 const config: ConfigTs = {
   development: {
     use_env_variable: 'DATABASE_DEV_URL',
-    username: process.env.USERNAME,
+    username: process.env.DB_USER,
     password: process.env.PASSWORD,
     database: process.env.DB_NAME,
-    host: process.env.HOST,
+    host: process.env.DB_HOST,
     dialect: 'mysql' as Dialect,
     define: {
       timestamps: false,

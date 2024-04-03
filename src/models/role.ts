@@ -1,6 +1,6 @@
 import { DataTypes } from 'sequelize';
 import { RoleType } from '../typings/role';
-import db from '.';
+import {db} from '.';
 
 // import { RoleStatusEnum } from '../enum/status';
 

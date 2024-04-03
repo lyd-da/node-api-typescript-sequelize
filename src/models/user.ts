@@ -1,7 +1,8 @@
 import { DataTypes, Model } from 'sequelize';
 import { UserType } from '../typings/user';
 import { Role } from './role';
-import db from '.';
+import {db} from '.';
+import { userStatus } from '../enum/userStatusEnum';
 
 export const User = db.define<UserType>(
   'User',
@@ -22,7 +23,7 @@ export const User = db.define<UserType>(
     lastName: {
       type: DataTypes.STRING,
     },
-    RoleId: {
+    roleId: {
       type: DataTypes.INTEGER,
       references: {
         model: Role.tableName,
@@ -31,6 +32,7 @@ export const User = db.define<UserType>(
     },
     status :{
       type: DataTypes.STRING,
+      defaultValue : userStatus.INACTIVE
     }
   },
   {

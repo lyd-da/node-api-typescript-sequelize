@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import router from "./src/routes";
-import db from "./src/models";
+import {db} from "./src/models";
 
 const app = express();
 

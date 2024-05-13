@@ -8,7 +8,9 @@
     "start": "tsc --project tsconfig.json -w",
     "build": "tsc -p .",
     "dev": "nodemon dist/app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "migrate": "npx sequelize-cli db:migrate",
+    "seed": "npx sequelize-cli db:seed:all"
   },
   "author": "",
   "license": "ISC",

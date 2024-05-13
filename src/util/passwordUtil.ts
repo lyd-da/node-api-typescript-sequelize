@@ -2,7 +2,7 @@ import bcrypt from 'bcrypt';
 export const hashPassword = async (password : string) =>{
     try {
         const salt = await bcrypt.genSalt(parseInt(process.env.SALT_ROUND ?? ''));
-        const hash = await bcrypt.hash(password, salt);
+        const hash = await bcrypt.hash(password, 20);
         return hash;
       } catch (error) {
         console.error('Error hashing data:', error);

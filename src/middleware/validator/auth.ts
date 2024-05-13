@@ -10,7 +10,7 @@ import { NextFunction, Request, Response } from 'express';
 import * as Joi from 'joi';
 
 class AuthValidator {
-  public register() {
+  public  register() {
     return Joi.object({
       username: Joi.string().required(),
       password: Joi.string().required(),
@@ -22,7 +22,7 @@ class AuthValidator {
   }
   public login() {
     return Joi.object({
-      phoneNumber: Joi.string().required(),
+      username: Joi.string().required(),
       password: Joi.string().required(),
     });
   }
@@ -51,15 +51,21 @@ class AuthValidator {
     return Joi.object({});
   }
 
-  public validateAuth (req : Request, res : Response , next :NextFunction, validator : any)  {
-    const { error } = validator.validate(req.body);
-    if (error) {
-      return res.status(400).json({ error: error.details[0].message });
+  public async validateAuth(req: Request, res: Response, next: NextFunction, validator: any) {
+    try {
+      if (validator) {
+        await validator.validateAsync(req.body);
+      }
+      return next();
+    } catch (error: any) {
+      console.log(error);
+      
+      return res.status(400).send({
+        success: false,
+        data: { message: error.details[0].message },
+      });
     }
-    next();
-  };
+  }
 }
-
-
 
 export default new AuthValidator();

@@ -15,6 +15,7 @@ export const User = db.define<UserType>(
     username: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true
     },
     firstName: {
       type: DataTypes.STRING,

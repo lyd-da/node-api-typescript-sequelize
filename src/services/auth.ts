@@ -44,7 +44,6 @@ export class AuthService {
       const token = await this.createToken(user.dataValues as UserType);
       return token;
     } catch (error) {
-
       throw { sucess: false, message: 'User not found', statusCode: 400 };
     }
   }

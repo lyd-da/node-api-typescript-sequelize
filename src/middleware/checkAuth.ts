@@ -11,6 +11,7 @@ export default class CheckAuth {
       const token = req.headers.authorization?.split(' ')[1];
       const verifiedToken = jwt.verify(token, process.env.SECRET!);
       if (!verifiedToken) {
+        
         throw new Error('Invalid Token');
       }
 

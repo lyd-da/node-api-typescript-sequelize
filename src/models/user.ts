@@ -38,6 +38,8 @@ export const User = db.define<UserType>(
   },
   {
     tableName: 'users',
+    timestamps:true,
+    paranoid:true
   },
 );
 
